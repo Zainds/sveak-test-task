@@ -1,7 +1,7 @@
 import "./style.scss";
 
 const burger = document.querySelector(".burger");
-const burgerNavList = document.querySelector(".header__nav .nav__list"); 
+const burgerNavList = document.querySelector(".header__nav .nav__list");
 const sidebarNavList = document.querySelector(".sidebar__nav .nav__list");
 const body = document.body;
 const navCloseBtn = document.querySelector(".header__nav .nav__close-btn");
@@ -42,7 +42,7 @@ if (navCloseBtn) {
 
 // Генерация карточек
 const cardsGrid = document.querySelector(".cards__grid");
-const totalCards = 16; // Примерное количество карточек, можно менять
+const totalCards = 16;
 
 function createCard(index) {
   const card = document.createElement("li");
@@ -55,7 +55,10 @@ function createCard(index) {
   const text = document.createElement("p");
   text.classList.add("card__text");
   text.textContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+    sed do eiusmod tempor incididunt ut labore et dolore magna \
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation \
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   card.appendChild(title);
   card.appendChild(text);
@@ -94,5 +97,10 @@ function hideIncompleteLastRow() {
   }
 }
 
-window.addEventListener("load", hideIncompleteLastRow);
+window.addEventListener("load", () => {
+  hideIncompleteLastRow();
+  if (cardsGrid) {
+    cardsGrid.classList.add("cards__grid--visible"); // Показываем сетку после расчетов
+  }
+});
 window.addEventListener("resize", hideIncompleteLastRow);

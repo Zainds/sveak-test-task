@@ -203,6 +203,11 @@ body {
     margin: 0;
     display: grid;
     gap: 20px;
+    visibility: hidden; // Скрываем изначально
+
+    &--visible {
+      visibility: visible;
+    }
   }
 }
 
